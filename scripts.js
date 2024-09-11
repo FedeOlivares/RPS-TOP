@@ -27,11 +27,28 @@ function getHumanChoice () {
 }
 
 let choice = getHumanChoice();
+console.log("Your choice is", choice)
 
 
 
-/* function getComputerChoice
+/* function getComputerChoice */ 
 
+function getComputerChoice() {                              // Gets a random index from 0 to 1 (ex: 0.646755), assigns a value with equal chance for all.
+    let computerChoice = undefined;
+    let index = Math.random();
+    if (index < 0.3334) {
+        return computerChoice = "Rock";
+    } else if ((index > 0.3334) && (index < 0.6667)){
+        return computerChoice = "Paper";
+    } else {
+        return computerChoice = "Scissors";
+    }
+}
+
+let computerChoice = getComputerChoice();
+console.log("The computer chooses", computerChoice);
+
+/*
 humanScore update based on wins
 initialize in zero
 
