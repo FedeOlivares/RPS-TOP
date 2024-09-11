@@ -5,6 +5,7 @@ return valid options, case insensitive */
 
 
 function getHumanChoice () {
+    const validChoices = ["r", "s", "p"];                   // establishes valid choices as r, s or p for Rock, paper, scissors
     let choice = undefined;
     let input = prompt("Rock / Paper / Scissors? :"); 
     input = input.toLowerCase();                           // converts all input into lowercase 
@@ -28,15 +29,14 @@ function getHumanChoice () {
 }
 
 
-function getComputerChoice() {                             // Gets a random index from 0 to 1 (ex: 0.646755), assigns a value with equal chance for all.
-    let computerChoice = undefined;
+function getComputerChoice() { 
     let index = Math.random();
     if (index < 0.3334) {
-        return computerChoice = "Rock";
+        return "Rock";
     } else if ((index > 0.3334) && (index < 0.6667)){
-        return computerChoice = "Paper";
+        return "Paper";
     } else {
-        return computerChoice = "Scissors";
+        return "Scissors";
     }
 }
 
@@ -44,42 +44,49 @@ function getComputerChoice() {                             // Gets a random inde
 function selectWinner(cChoice, hChoice) {                  // Takes human and computer choice and compares it to whether who wins or looses, updates scores and rounds
     if (cChoice == "Rock"){
         if (hChoice == "Rock") {
-            alert("It was a tie! Computer Chose Rock too! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            alert("It was a tie! Computer Chose Rock too! Your Score is " + humanScore + 
+                ", the computer's is " + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         } else if (hChoice == "Paper"){
             humanScore++;
-            alert("Computer Chose Rock, you win! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            alert("Computer Chose Rock, you win! Your Score is " + humanScore + ", the computer's is "
+                 + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         } else if (hChoice == "Scissors"){
             computerScore++;
-            alert("Computer Chose Rock, you lose! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            alert("Computer Chose Rock, you lose! Your Score is " + humanScore + ", the computer's is " 
+                + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         }
     } 
 
     if (cChoice == "Paper"){
         if (hChoice == "Rock") {
             computerScore++;
-            alert("Computer Chose Paper, you lose! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            alert("Computer Chose Paper, you lose! Your Score is " + humanScore + 
+                ", the computer's is " + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         } else if (hChoice == "Paper"){
-            alert("It was a tie! Computer Chose Paper too! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            alert("It was a tie! Computer Chose Paper too! Your Score is " + humanScore + 
+                ", the computer's is " + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         } else if (hChoice == "Scissors"){
             humanScore++;
-            alert("Computer Chose Paper, you win! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            alert("Computer Chose Paper, you win! Your Score is " + humanScore + 
+                ", the computer's is " + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         }
     }
 
     if (cChoice == "Scissors"){
         if (hChoice == "Rock") {
             humanScore++;
-            alert("Computer Chose Scissors, you win! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            alert("Computer Chose Scissors, you win! Your Score is " + humanScore + ", the computer's is " 
+                + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         } else if (hChoice == "Paper"){
-            humanScore++;
-            alert("Computer Chose Paper, you win! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            computerScore++;
+            alert("Computer Chose Scissors, you Lose! Your Score is " + humanScore + ", the computer's is " 
+                + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         } else if (hChoice == "Scissors"){
-            alert("It was a tie! Computer Chose Scissors too! Your Score is " + humanScore + ", the computer's is " + computerScore);
+            alert("It was a tie! Computer Chose Scissors too! Your Score is " + humanScore + 
+                ", the computer's is " + computerScore + ". There are " + roundsRemaining + " rounds remaining.");
         }
     }
 }
-
-
 
 
 let computerScore = 0;
@@ -88,7 +95,7 @@ let roundsRemaining = 5;
 
 
 function playRound() {
-    const validChoices = ["r", "s", "p"];                      // establishes valid choices as r, s or p for Rock, paper, scissors
+    console.log("entered into play round");
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
     roundsRemaining -= 1;
@@ -96,28 +103,18 @@ function playRound() {
 }
 
 function playGame () {
-    while (roundsRemaining < 5) {
-        playRound()
+    while (roundsRemaining > 0) {
+        playRound();
+        console.log("entered into play game while");
     }
     if (computerScore > humanScore) {
-        alert("Computer Wins! Final score Computer:", computerScore, "Your Score:", humanScore);
+        alert("Computer Wins! Final score Computer: " + computerScore + "Your Score:" + humanScore);
+    } else if (computerScore < humanScore) {
+        alert("You Win! Final score Computer: " + computerScore + ". Your Score: " + humanScore);
     } else {
-        alert("You Win! Final score Computer:", computerScore, "Your Score:", humanScore);
+        alert("It was a tie, very well played!");
     }
 }
 
-playGame()
+playGame();
 
-/*
-computerScore update based on wins
-
-function playRound variables human and computer choice
- select winner
- update score
- print winner
-
-function playGame
- itterate 5 rounds
- check score after rounds determine winner. 
-
-*/
