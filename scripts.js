@@ -94,18 +94,16 @@ let humanScore = 0;
 let roundsRemaining = 5;
 
 
-function playRound() {
-    console.log("entered into play round");
-    let humanChoice = getHumanChoice();
+function playRound() {                                     // Plays each round, decrements round count before showing it.
+    let humanChoice = getHumanChoice();                    // gets user hand, then computer's hand, decrements and shows winner.
     let computerChoice = getComputerChoice();
     roundsRemaining -= 1;
     selectWinner(computerChoice, humanChoice);
 }
 
-function playGame () {
+function playGame () {                                     // loops 5 rounds, after all 5, evaluates score and proclaims win, lose or tie.
     while (roundsRemaining > 0) {
         playRound();
-        console.log("entered into play game while");
     }
     if (computerScore > humanScore) {
         alert("Computer Wins! Final score Computer: " + computerScore + "Your Score:" + humanScore);
