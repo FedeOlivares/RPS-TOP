@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="scripts.js"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <title>RPS The Odin Project</title>
 </head>
-<body>
-    
+<body>  
+    <div class="container">
+        <h1> Rock Paper Scissors Lizard Spock</h1>
+        <h5> "An expansion on the traditional game Rock, Paper, Scissors" <a style="color: bisque;" href="https://bigbangtheory.fandom.com/wiki/Rock,_Paper,_Scissors,_Lizard,_Spock"> How to play?</a></h5>
+        <div class="centerUp">
+            <div class="finalChoices">
+                <div class="centerLeft">
+                    <h3> Player: </h3>
+                    <h2 id="playerChoice"> Make your Selection </h2>
+                </div>
+                <div class="centerRight"> 
+                    <h3>Computer: </h3>
+                    <h2 id="computerChoice"> The Computer will too </h2>
+                </div>
+            </div>
+            <h4 id="winnerAnounce"> <!-- xxx wins --> </h4>
+
+        </div>
+        <div class="centerCenter">
+            <div class="counter">
+                <h4 id="playerCount">Player: </h4>
+                <h4 id="computerCount">Computer: </h4>
+            </div>
+        </div>
+        <div class="decisionBtns">
+            <button class="choice" id="rock" value="rock"> Rock</button>
+            <button class="choice" id="paper" value="paper"> Paper </button>
+            <button class="choice" id="scissors" value="scissors"> Scissors </button>
+            <button class="choice" id="lizard" value="lizard"> Lizard </button>
+            <button class="choice" id="spock" value="spock"> Spock </button>
+            <!--
+                Rock     Paper     Scissors
+            -->
+        </div>
+    </div>
 
 </body>
 </html>
