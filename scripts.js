@@ -8,6 +8,25 @@ buttons.forEach(button => {
     };
 });
 
+const reset = document.querySelector(".reset");
+reset.onclick = () => { dataReset() };
+
+let cScore = 0;
+let hScore = 0;
+
+const humanScore = document.querySelector("#playerCount");
+const computerScore = document.querySelector("#computerCount");
+
+const outcomes = {
+    rock: { beats: ['scissors', 'lizard'], beaten: ['paper', 'spock'] },
+    paper: { beats: ['rock', 'spock'], beaten: ['scissors', 'lizard'] },
+    scissors: { beats: ['paper', 'lizard'], beaten: ['rock', 'spock'] },
+    lizard: { beats: ['spock', 'paper'], beaten: ['scissors', 'rock'] },
+    spock: { beats: ['scissors', 'rock'], beaten: ['lizard', 'paper'] }
+};
+
+
+
 function getComputerChoice() { 
     let index = Math.random();
     if (index < 0.2) {
@@ -23,19 +42,8 @@ function getComputerChoice() {
     }
 }
 
-const outcomes = {
-    rock: { beats: ['scissors', 'lizard'], beaten: ['paper', 'spock'] },
-    paper: { beats: ['rock', 'spock'], beaten: ['scissors', 'lizard'] },
-    scissors: { beats: ['paper', 'lizard'], beaten: ['rock', 'spock'] },
-    lizard: { beats: ['spock', 'paper'], beaten: ['scissors', 'rock'] },
-    spock: { beats: ['scissors', 'rock'], beaten: ['lizard', 'paper'] }
-};
 
-let cScore = 0;
-let hScore = 0;
 
-const humanScore = document.querySelector("#playerCount");
-const computerScore = document.querySelector("#computerCount");
 
 
 function selectWinner(cChoice, hChoice) {
@@ -79,3 +87,14 @@ function announceWinner(winner) {
     }
 }
 
+function dataReset() {
+    hScore = 0;
+    cScore = 0;
+
+    humanScore.innerText = hScore;
+    computerScore.innerText = cScore;
+
+    winnerAnounce.innerText = "Make your choice";
+    document.getElementById("playerChoice").innerText = "";
+    document.getElementById("computerChoice").innerText = "";
+}
