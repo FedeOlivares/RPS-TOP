@@ -1,6 +1,4 @@
-/* function getHumanChoice
-return valid options, case insensitive */
-
+const button = document.querySelectorAll(".choice")
 
 
 

@@ -1,0 +1,73 @@
+body {
+    background-color: #2d6b6b;
+    color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box ;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerUp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.finalChoices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20vw;
+
+}
+
+.centerLeft, 
+.centerRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter {
+    display: flex;
+    gap: 10vw;
+}
+
+.decisionBtns {
+    margin-top: 7vh;
+    display: flex;
+    gap: 2vw;
+    max-width: 30vw;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.choice {
+    background-color: transparent;
+    color: bisque;
+    border: 2px solid black;
+    border-radius: 0%;
+    font-size: 2rem;
+    text-align: center;
+    min-width: 8vw;
+    transition-duration: 0.4s;
+}
+
+.choice:hover {
+    color: #2d6b6b;
+    background-color: bisque;
+}
+
+.choice:active {
+    opacity: 5%;
+}
