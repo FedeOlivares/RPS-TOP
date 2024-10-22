@@ -60,7 +60,8 @@ body {
     
 }
 
-.choice {
+.choice,
+.reset {
     background-color: transparent;
     color: bisque;
     border: 2px solid black;
@@ -71,11 +72,13 @@ body {
     transition-duration: 0.4s;
 }
 
-.choice:hover {
+.choice:hover,
+.reset:hover {
     color: #2d6b6b;
     background-color: bisque;
 }
 
-.choice:active {
+.choice:active,
+.reset:active {
     opacity: 5%;
 }
